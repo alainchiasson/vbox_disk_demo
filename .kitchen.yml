@@ -1,0 +1,20 @@
+---
+driver:
+  name: vagrant
+  vagrantfile_erb: Vagrantfile.erb
+  vagrantfiles:
+    - /Users/achiass1/Documents/WorkProjects/MyProd/vbox_disk_demo/Vagrant.Disk.rb
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: 11.16.4
+
+platforms:
+  - name: ubuntu-12.04
+
+
+suites:
+  - name: default
+    run_list:
+      - recipe[vbox_disk_demo::default]
+    attributes:
